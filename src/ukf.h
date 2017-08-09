@@ -11,6 +11,16 @@ using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
 class UKF {
+private:
+
+	void GenerateAugmentedSigmaPoints(MatrixXd* Xsig_aug_out);
+	void UpdateSigmaPointPrediction(double delta_t, MatrixXd& Xsig_aug);
+	void PredictMeanAndCovariance();
+	void PredictLidarMeasurement(double delta_t, MatrixXd* Zsig_pred_out, VectorXd* z_pred_out, MatrixXd* S_pred_out);
+	void PredictRadarMeasurement(double delta_t, MatrixXd* Zsig_pred_out, VectorXd* z_pred_out, MatrixXd* S_pred_out);
+	void UpdateState(MatrixXd& Zsig_pred, VectorXd& z_pred, MatrixXd& S_pred, MeasurementPackage& meas_package);
+	double NormalizeAngle(double angle);
+
 public:
 
   ///* initially set to false, set to true in first call of ProcessMeasurement
@@ -66,6 +76,12 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
+
+  ///* LIDAR measurement dimension (px, py)
+  int n_lasz_ = 2;
+
+  ///* Radar measurement dimension (rho, phi, phi_dot)
+  int n_radz_ = 3;
 
 
   /**

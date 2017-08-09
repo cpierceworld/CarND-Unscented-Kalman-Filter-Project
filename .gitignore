@@ -6,3 +6,4 @@ build/
 .settings/
 .cproject
 .project
+/Debug/
