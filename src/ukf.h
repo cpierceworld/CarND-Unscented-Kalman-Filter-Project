@@ -16,8 +16,8 @@ private:
 	void GenerateAugmentedSigmaPoints(MatrixXd* Xsig_aug_out);
 	void UpdateSigmaPointPrediction(double delta_t, MatrixXd& Xsig_aug);
 	void PredictMeanAndCovariance();
-	void PredictLidarMeasurement(double delta_t, MatrixXd* Zsig_pred_out, VectorXd* z_pred_out, MatrixXd* S_pred_out);
-	void PredictRadarMeasurement(double delta_t, MatrixXd* Zsig_pred_out, VectorXd* z_pred_out, MatrixXd* S_pred_out);
+	void PredictLidarMeasurement(MatrixXd* Zsig_pred_out, VectorXd* z_pred_out, MatrixXd* S_pred_out);
+	void PredictRadarMeasurement(MatrixXd* Zsig_pred_out, VectorXd* z_pred_out, MatrixXd* S_pred_out);
 	void UpdateState(MatrixXd& Zsig_pred, VectorXd& z_pred, MatrixXd& S_pred, MeasurementPackage& meas_package);
 	double NormalizeAngle(double angle);
 

@@ -30,8 +30,6 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
 	rmse.fill(0);
 
-	return rmse;
-
 	//accumulate squared residuals
 	for(unsigned int i=0; i < estimations.size(); ++i){
 
