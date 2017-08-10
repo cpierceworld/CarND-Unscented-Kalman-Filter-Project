@@ -74,6 +74,8 @@ public:
   ///* Augmented state dimension
   int n_aug_;
 
+  int n_sig_;
+
   ///* Sigma point spreading parameter
   double lambda_;
 
@@ -82,6 +84,10 @@ public:
 
   ///* Radar measurement dimension (rho, phi, phi_dot)
   int n_radz_ = 3;
+
+  MatrixXd R_lasz_;
+
+  MatrixXd R_radr_;
 
 
   /**
